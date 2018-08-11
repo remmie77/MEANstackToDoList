@@ -3,7 +3,7 @@
 
 [x] create folder structure
 
-[x] create .gitignore and other files
+[x] create .gitignore and other files 
 
 [ ] wire up index html with client.js, etc.
 
