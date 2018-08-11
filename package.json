@@ -1,0 +1,27 @@
+{
+  "name": "MEANstackToDoList",
+  "version": "1.0.0",
+  "description": "[x] create new git REPO with READ.md",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remmie77/MEANstackToDoList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remmie77/MEANstackToDoList/issues"
+  },
+  "homepage": "https://github.com/remmie77/MEANstackToDoList#readme",
+  "dependencies": {
+    "angular": "^1.7.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7"
+  }
+}
