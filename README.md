@@ -17,7 +17,7 @@
 
 [x] Create a model for the inputs
 
-[ ] Add ng-submit for the form
+[x] Add ng-submit for the form
 
 [ ]POST to the server with $http
 

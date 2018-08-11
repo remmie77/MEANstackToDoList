@@ -12,8 +12,22 @@
 </head>
 
 <body ng-app="myApp">
-    <div ng-controller="TodoController as tm">
+    <div class="container" ng-controller="TodoController as tm">
         <h1>TO-DO LIST</h1>
+        <h2>$HTTP DELETE Activity</h2>
+         Is angularjs working? {{1 === 1}}
+         <div class="form-container">
+                <form id="repair-form" ng-submit="vm.addChore(vm.choreToAdd)">
+                    <!-- Input field -->
+                    <label>To Do:</label>
+                    <input type="text" ng-model="vm.choreToAdd.chore" id="car-input" placeholder="e.g. Mow the lawn">
+                    <br /> <label>Finished?:</label>
+                    <input type="text" ng-model="vm.choreToAdd.compleated" id="miles-input" placeholder="e.g. true/false">
+                    <br />
+                    <!-- Creates a submit button -->
+                    <input type="submit" value="submit">
+                </form>
+            </div>
     </div>
 </body>
 
