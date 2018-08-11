@@ -13,6 +13,8 @@
 
 [x] Create a controller directive and in the client.js
 
+[x] spin up server
+
 [ ] Create a model for the inputs
 
 [ ] Add ng-submit for the form
