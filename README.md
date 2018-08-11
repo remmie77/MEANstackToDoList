@@ -9,7 +9,7 @@
 
 [x] npm install all packages including express, body-parser, mongoose, etc
 
-[ ] Source in AngularJS and add the ng-app directive
+[x] Source in AngularJS and add the ng-app directive
 
 [ ] Create a controller directive and in the client.js
 
