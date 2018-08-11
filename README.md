@@ -5,7 +5,7 @@
 
 [x] create .gitignore and other files 
 
-[ ] wire up index html with client.js, etc.
+[x] wire up index html with client.js, etc.
 
 [x] npm install all packages including express, body-parser, mongoose, etc
 
