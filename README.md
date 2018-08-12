@@ -29,9 +29,9 @@
 
 [x] PUT server side
 
-[ ] Button and ng-click for client put
+[x] Button and ng-click for client put
 
-[ ] DELETE server side
+[x] DELETE server side
 
   [ ] Button and ng-click for client delete
 

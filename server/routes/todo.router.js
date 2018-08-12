@@ -13,6 +13,31 @@ const TodoSchema = new Schema({
 const Todo = mongoose.model('Chores', TodoSchema);
 // Chores will be the collection name
 
+
+// PUT & DELETE will always have a /:id
+router.put('/repairComplete/:id', (req, res) => {
+    // PUT will update something in the database
+    // req.body for anything other than an id
+    console.log('Update', req.params.id);
+    // _id is a Mongo id
+    // Find a document by id
+    Repair.findOne({_id: req.params.id}).then((foundRepair) => {
+        console.log(foundRepair);
+        // make the change
+        foundRepair.complete = true;
+        foundRepair.cost += 100;
+        // save the document
+        foundRepair.save().then((response) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            res.sendStatus(500);
+        })
+    }).catch((error) => {
+        res.sendStatus(500);
+        console.log('error', error);
+    })
+});
+
 router.post('/', ( request, response ) => {
     console.log('/todo POST');
     console.log( 'router posting', request.body );
@@ -29,6 +54,15 @@ router.post('/', ( request, response ) => {
         response.sendStatus(500);
     });
 });
+
+router.delete( '/:id', ( request, response ) => {
+    Todo.findByIdAndRemove( request.params.id ).then( ( response ) => {
+        response.sendStatus( 201 );
+    }).catch( ( error ) => {
+        response.sendStatus( 500 );
+    });
+});
+
 
 
 //basic route for stuff

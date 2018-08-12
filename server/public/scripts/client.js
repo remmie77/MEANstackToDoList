@@ -8,16 +8,30 @@ myApp.controller('TodoController', function($http){
     
     const vm = this;
     vm.choreData = [];
-    vm.choreToAdd = {
-        chore: 'mow lawn'
+    
+    
+    function getChoreList() {
+        $http({
+            method: 'GET',
+            url: '/todo'
+        }).then ( function(response){
+            vm.choreData = response.data;
+        }).catch( function( error ) {
+            alert('unable to GET from route ', error );
+        });
     }
-
-    vm.carToAdd = {
-        car: 'Outback',
-        miles: 12345,
-        repair: 'tires',
-        cost: 800
-    };
+    
+    vm.completeChore = function ( choreId ) {
+        $http({
+            method: 'PUT',
+            url: '/todo/choreComplete/' + choreId
+        }).then( function ( response ) {
+            console.log( 'in conpleteChore', response );
+            getChoreList(); 
+        }).catch( function ( error ) {
+            alert( 'unable to complete chore' );
+        })
+    }
     
     vm.addChore = function (choreInput) {
         console.log('in addChore', choreInput);
@@ -32,18 +46,20 @@ myApp.controller('TodoController', function($http){
             alert('unable to post chore');
         })
     }
+    
+    vm.deleteChore = function ( choreId ) {
+        console.log( 'in deleteChore' );
+        $http({
+            method: 'DELETE',
+            url: '/todo/' + choreId
+        }).then( function (response) {
+            getChoreList(); 
+        }).catch( function ( error ) {
+            alert( 'unable to delete chore' );
+        })
+    }
 
     getChoreList();
 
 
-    function getChoreList() {
-        $http({
-            method: 'GET',
-            url: '/todo'
-        }).then ( function(response){
-            vm.choreData = response.data;
-        }).catch( function( error ) {
-            alert('unable to GET from route ', error );
-        });
-    }
 })

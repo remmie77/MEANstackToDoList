@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <script src="vendors/angular.min.js"></script>
     <script src="scripts/client.js"></script>
-    <title>Document</title>
+    <title>MEANstackTODOlist</title>
 </head>
 
 <body ng-app="myApp">
@@ -38,8 +38,8 @@
                     <tr tm-class="choreToAdd.complete ? 'highlight' : 'normal'" ng-repeat="chore in tc.choreData">
                         <td>{{chore.chore}}</td>
                         
-                        <td><button ng-click="tc.completeRepair(todo._id)">Finished Chore</button></td>
-                        <td><button ng-click="tc.deleteTicket(todo._id)">Delete Item</button></td>
+                        <td><button ng-click="tc.completeChore(chore._id)">Finished Chore</button></td>
+                        <td><button ng-click="tc.deleteChore(chore._id)">Delete Item</button></td>
                     </tr>
                 </tbody>
         </table>
