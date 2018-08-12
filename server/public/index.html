@@ -12,22 +12,37 @@
 </head>
 
 <body ng-app="myApp">
-    <div class="container" ng-controller="TodoController as tm">
+    <div class="container" ng-controller="TodoController as tc">
         <h1>TO-DO LIST</h1>
-        <h2>$HTTP DELETE Activity</h2>
-         Is angularjs working? {{1 === 1}}
+        <h2>add to list:</h2>
+         <!-- Is angularjs working? {{1 === 1}} -->
          <div class="form-container">
-                <form id="repair-form" ng-submit="vm.addChore(vm.choreToAdd)">
+                <form id="repair-form" ng-submit="tc.addChore(tc.choreToAdd)">
                     <!-- Input field -->
                     <label>To Do:</label>
-                    <input type="text" ng-model="vm.choreToAdd.chore" id="car-input" placeholder="e.g. Mow the lawn">
-                    <br /> <label>Finished?:</label>
-                    <input type="text" ng-model="vm.choreToAdd.compleated" id="miles-input" placeholder="e.g. true/false">
-                    <br />
+                    <input type="text" ng-model="tc.choreToAdd.chore" id="car-input" placeholder="e.g. Mow the lawn">
+                    
                     <!-- Creates a submit button -->
                     <input type="submit" value="submit">
                 </form>
-            </div>
+        </div>
+        <table class="repair-table">
+                <thead>
+                    <tr>
+                        <th>Chores</th>
+                        
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="repairs-output">
+                    <tr tm-class="choreToAdd.complete ? 'highlight' : 'normal'" ng-repeat="chore in tc.choreData">
+                        <td>{{chore.chore}}</td>
+                        
+                        <td><button ng-click="tc.completeRepair(todo._id)">Finished Chore</button></td>
+                        <td><button ng-click="tc.deleteTicket(todo._id)">Delete Item</button></td>
+                    </tr>
+                </tbody>
+        </table>
     </div>
 </body>
 

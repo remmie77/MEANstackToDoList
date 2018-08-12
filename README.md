@@ -19,15 +19,15 @@
 
 [x] Add ng-submit for the form
 
-[ ]POST to the server with $http
+[x]POST to the server with $http
 
-[ ] Check Mongo to see if it worked
+[x] Check Mongo to see if it worked
 
-[ ] GET request to the server
+[x] GET request to the server
 
-[ ] ng-repeat over the response.data
+[x] ng-repeat over the response.data
 
-[ ] PUT server side
+[x] PUT server side
 
 [ ] Button and ng-click for client put
 
