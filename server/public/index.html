@@ -1,49 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="vendors/angular.min.js"></script>
-    <script src="scripts/client.js"></script>
-    <title>MEANstackTODOlist</title>
-</head>
-
-<body ng-app="myApp">
-    <div class="container" ng-controller="TodoController as tc">
-        <h1>TO-DO LIST</h1>
-        <h2>add to list:</h2>
-         <!-- Is angularjs working? {{1 === 1}} -->
-         <div class="form-container">
-                <form id="repair-form" ng-submit="tc.addChore(tc.choreToAdd)">
-                    <!-- Input field -->
-                    <label>To Do:</label>
-                    <input type="text" ng-model="tc.choreToAdd.chore" id="car-input" placeholder="e.g. Mow the lawn">
-                    
-                    <!-- Creates a submit button -->
-                    <input type="submit" value="submit">
-                </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles/styles.css">
+        <script src="vendors/angular.min.js"></script>
+        <script src="scripts/client.js"></script>
+        <title>MEANstackTODOlist</title>
+    </head>
+    <body ng-app="myApp">
+        <div class="container" ng-controller="TodoController as tc">
+            <h1>TO-DO LIST</h1>
+            <h2>add to list:</h2>
+            <!-- Is angularjs working? {{1 === 1}} -->
+            <div class="form-container">
+                    <form id="repair-form" ng-submit="tc.addChore(tc.choreToAdd)">
+                        <!-- Input field -->
+                        <label>To Do:</label>
+                        <input type="text" ng-model="tc.choreToAdd.task" id="car-input" placeholder="e.g. Mow the lawn">
+                        <input type="submit" value="submit">
+                    </form>
+                    <table class="repair-table">
+                        <thead>
+                            <tr>
+                                <th>Chores</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody id="repairs-output">
+                            <tr ng-repeat="chore in tc.choreData">
+                                <td><span ng-class="{ complete: chore.complete }" ng-click="tc.toggleTask( $index )">
+                                    {{chore.task}}
+                                </span></td>
+                                <td><button ng-click="tc.deleteItem(chore._id)">Delete Item</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
         </div>
-        <table class="repair-table">
-                <thead>
-                    <tr>
-                        <th>Chores</th>
-                        
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody id="repairs-output">
-                    <tr tm-class="choreToAdd.complete ? 'highlight' : 'normal'" ng-repeat="chore in tc.choreData">
-                        <td>{{chore.chore}}</td>
-                        
-                        <td><button ng-click="tc.completeChore(chore._id)">Finished Chore</button></td>
-                        <td><button ng-click="tc.deleteChore(chore._id)">Delete Item</button></td>
-                    </tr>
-                </tbody>
-        </table>
-    </div>
-</body>
-
+    </body>
 </html>

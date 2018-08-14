@@ -33,6 +33,6 @@
 
 [x] DELETE server side
 
-  [ ] Button and ng-click for client delete
+  [x] Button and ng-click for client delete and 'chore completed' 
 
-  [ ] Use ng-class to format the completed toDo's differently from the non-completed toDo's
+  [x] Use ng-class to format the completed toDo's differently from the non-completed toDo's
